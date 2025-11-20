@@ -73,44 +73,61 @@ else if (sans >= 40 && sans < 60)
 Bu işlem sayesinde program, farklı şans aralıklarına göre doğru aksiyonu seçer ve karar süreci kontrol altında tutulur.
 
 ---
-### 4.2 Sığınak Arama (S komutu)
+### 4.1 Avlanma (A komutu)
+Kullanıcı avlandığında enerji aritmetik olarak azalır:  
+```c
+enerji -= 15;
+Daha sonra rand() ile 0–99 arası değer üretilir ve if–else yapısı ile değerlendirilir:
 
-  ```c
-  Enerji > 30 ve sağlık > 40 ise oyuncu sığınak bulur:
+%40 ihtimalle yemek kazanılır
 
-   if ((enerji > 30) && (saglik > 40)) {
-      siginakVar = 1;
-    }
+%20 ihtimalle yaralanılır
+
+Geri kalan %40 ihtimalle hiçbir şey olmaz
+
+Mantıksal operatör kullanımı:
+
+c
+Kodu kopyala
+if (sans < 40)
+else if (sans >= 40 && sans < 60)
+4.2 Sığınak Arama (S komutu)
+Enerji > 30 ve sağlık > 40 ise oyuncu sığınak bulur:
+
+c
+Kodu kopyala
+if ((enerji > 30) && (saglik > 40)) {
+    siginakVar = 1;
+}
 Mantıksal AND (&&) operatörü, iki koşulun aynı anda doğru olmasını gerektirir.
 
 IF–ELSE yapısı ile koşullar sağlanmazsa oyuncuya sığınak bulunamadığı bildirilir.
 
----
-### 4.3 Dinlenme (R komutu)
-
+4.3 Dinlenme (R komutu)
 Dinlenme sırasında enerji ve sağlık artırılır:
-     ```c
-     enerji += 20;
-     saglik += 10;
 
+c
+Kodu kopyala
+enerji += 20;
+saglik += 10;
 Üst sınır kontrolü IF ile yapılır:
-     ```c
-     if (enerji > 100) enerji = 100;
-     if (saglik > 100) saglik = 100;
 
----
+c
+Kodu kopyala
+if (enerji > 100) enerji = 100;
+if (saglik > 100) saglik = 100;
+5. Döngüler
+5.1 For Döngüsü – Tehlike Dalgası (F komutu)
+Oyuncu 5 tur süren bir tehlike dalgasına girer:
 
-### 5. Döngüler
-### .1 For Döngüsü – Tehlike Dalgası (F komutu)
-
-Oyuncu 5 tur süren bir tehlike dalgasına girer. For döngüsü ile yapılır:
-     ```c
-     for (i = 1; i <= 5; i++) {
-         int olay = rand() % 3;
-      } 
+c
+Kodu kopyala
+for (i = 1; i <= 5; i++) {
+    int olay = rand() % 3;
+}
 Amaç: Oyuncunun karşılaştığı tehlikeleri simüle etmek.
 
-    ```c rand() % 3 → 0, 1 veya 2 değerlerinden rastgele biri seçilir:
+rand() % 3 → 0, 1 veya 2 değerlerinden rastgele biri seçilir:
 
 0 → Sağlık kaybı (saglik -= 5)
 
@@ -118,23 +135,19 @@ Amaç: Oyuncunun karşılaştığı tehlikeleri simüle etmek.
 
 2 → Kaçış başarılı, oyuncu zarar görmez
 
-Her turda sağlık veya enerji azalır, sağlık 0 veya altına düşerse oyun sona erer.
+Her turda sağlık veya enerji azalır; sağlık 0 veya altına düşerse oyun sona erer.
 
----
-### 5.2 Do–While Döngüsü – Şifreli Geçiş (P komutu)
-
+5.2 Do–While Döngüsü – Şifreli Geçiş (P komutu)
 Oyuncu doğru karakteri girene kadar döngü tekrar eder:
-     ```c
-     do {
-         scanf(" %c", &girilen);
-     } while (girilen != sifre);
 
-
+c
+Kodu kopyala
+do {
+    scanf(" %c", &girilen);
+} while (girilen != sifre);
 Neden do–while? Kullanıcı şifreyi en az bir kez denemek zorundadır.
 
----
-### 6. Programın Çalışma Akışı (Örnek)
-
+6. Programın Çalışma Akışı (Örnek)
 Oyuncu A (Avlan) komutunu girer → enerji azalır, rastgele yemek bulunabilir.
 
 Oyuncu F komutunu girer → 5 tur tehlike döngüsüne girilir.
@@ -144,6 +157,3 @@ Oyuncu P komutunu girer → doğru şifre girilene kadar döngü devam eder.
 Oyuncu E komutu ile mevcut sağlık/enerji/yemek durumu görüntülenir.
 
 X komutu ile program kapanır.
-
-
-
