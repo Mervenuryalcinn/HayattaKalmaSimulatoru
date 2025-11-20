@@ -72,6 +72,23 @@ else if (sans >= 40 && sans < 60)
 
 Bu işlem sayesinde program, farklı şans aralıklarına göre doğru aksiyonu seçer ve karar süreci kontrol altında tutulur.
 
+
+
+
+
+4.3 Dinlenme (R komutu)
+
+Dinlenme sırasında enerji ve sağlık aritmetik olarak artırılır:
+
+enerji += 20;
+saglik += 10;
+
+
+Üst sınır kontrolü IF ile yapılır:
+
+if (enerji > 100) enerji = 100;
+if (saglik > 100) saglik = 100;
+
 ---
 ### 4.2 Sığınak Arama (S komutu)
 
