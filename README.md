@@ -73,25 +73,7 @@ else if (sans >= 40 && sans < 60)
 Bu işlem sayesinde program, farklı şans aralıklarına göre doğru aksiyonu seçer ve karar süreci kontrol altında tutulur.
 
 ---
-### 4.1 Avlanma (A komutu)
-Kullanıcı avlandığında enerji aritmetik olarak azalır:  
-```c
-enerji -= 15;
-Daha sonra rand() ile 0–99 arası değer üretilir ve if–else yapısı ile değerlendirilir:
-
-%40 ihtimalle yemek kazanılır
-
-%20 ihtimalle yaralanılır
-
-Geri kalan %40 ihtimalle hiçbir şey olmaz
-
-Mantıksal operatör kullanımı:
-
-c
-Kodu kopyala
-if (sans < 40)
-else if (sans >= 40 && sans < 60)
-4.2 Sığınak Arama (S komutu)
+### 4.2 Sığınak Arama (S komutu)
 Enerji > 30 ve sağlık > 40 ise oyuncu sığınak bulur:
 
 c
@@ -103,25 +85,25 @@ Mantıksal AND (&&) operatörü, iki koşulun aynı anda doğru olmasını gerek
 
 IF–ELSE yapısı ile koşullar sağlanmazsa oyuncuya sığınak bulunamadığı bildirilir.
 
-4.3 Dinlenme (R komutu)
+### 4.3 Dinlenme (R komutu)
 Dinlenme sırasında enerji ve sağlık artırılır:
 
-c
-Kodu kopyala
+```c
 enerji += 20;
 saglik += 10;
+
 Üst sınır kontrolü IF ile yapılır:
 
-c
-Kodu kopyala
 if (enerji > 100) enerji = 100;
 if (saglik > 100) saglik = 100;
-5. Döngüler
-5.1 For Döngüsü – Tehlike Dalgası (F komutu)
+---
+
+## 5. Döngüler
+
+### 5.1 For Döngüsü – Tehlike Dalgası (F komutu)
 Oyuncu 5 tur süren bir tehlike dalgasına girer:
 
-c
-Kodu kopyala
+```c
 for (i = 1; i <= 5; i++) {
     int olay = rand() % 3;
 }
@@ -137,17 +119,16 @@ rand() % 3 → 0, 1 veya 2 değerlerinden rastgele biri seçilir:
 
 Her turda sağlık veya enerji azalır; sağlık 0 veya altına düşerse oyun sona erer.
 
-5.2 Do–While Döngüsü – Şifreli Geçiş (P komutu)
+### 5.2 Do–While Döngüsü – Şifreli Geçiş (P komutu)
 Oyuncu doğru karakteri girene kadar döngü tekrar eder:
 
-c
-Kodu kopyala
+```c
 do {
     scanf(" %c", &girilen);
 } while (girilen != sifre);
 Neden do–while? Kullanıcı şifreyi en az bir kez denemek zorundadır.
 
-6. Programın Çalışma Akışı (Örnek)
+### 6. Programın Çalışma Akışı (Örnek)
 Oyuncu A (Avlan) komutunu girer → enerji azalır, rastgele yemek bulunabilir.
 
 Oyuncu F komutunu girer → 5 tur tehlike döngüsüne girilir.
