@@ -4,6 +4,8 @@
 Bu proje, C programlama dili kullanılarak geliştirilen karakter tabanlı bir Hayatta Kalma Simülatörü uygulamasıdır.  
 Oyuncu tek karakterlik komutlar girerek oyunla etkileşime geçer. Program, `switch–case` yapısı ile komutları işler; sağlık, enerji, yemek ve sığınak gibi durumları aritmetik işlemlerle günceller; rastgele olayları `rand()` fonksiyonu ile üretir.  
 
+### dokemd cfrm
+  
 ---
 ## 🎮 Nasıl Oynanır?
 
@@ -71,7 +73,6 @@ Geri kalan %40 ihtimalle hiçbir şey olmaz
   else if (sans >= 40 && sans < 60)
 
 Bu işlem sayesinde program, farklı şans aralıklarına göre doğru aksiyonu seçer ve karar süreci kontrol altında tutulur.
-
 ---
 ### 4.2 Sığınak Arama (S komutu)
 - Enerji > 30 ve sağlık > 40 ise oyuncu sığınak bulur:
@@ -82,21 +83,17 @@ Bu işlem sayesinde program, farklı şans aralıklarına göre doğru aksiyonu 
 Mantıksal AND (&&) operatörü, iki koşulun aynı anda doğru olmasını gerektirir.
 
 IF–ELSE yapısı ile koşullar sağlanmazsa oyuncuya sığınak bulunamadığı bildirilir.
-
 ### 4.3 Dinlenme (R komutu)
 - Dinlenme sırasında enerji ve sağlık artırılır:
- ```c
+
+  ```c
   enerji += 20;
   saglik += 10;
-
-- Üst sınır kontrolü IF ile yapılır:
-  ```c
-  if (enerji > 100) enerji = 100;
-  if (saglik > 100) saglik = 100;
-
----
-### 5. Döngüler
----
+Üst sınır kontrolü IF ile yapılır:
+if (enerji > 100) enerji = 100;
+if (saglik > 100) saglik = 100;
+E yapısı ile koşullar sağlanmazsa oyuncuya sığınak bulunamadığı bildirilir.
+## 5. Döngüler
 ### 5.1 For Döngüsü – Tehlike Dalgası (F komutu)
 - Oyuncu 5 tur süren bir tehlike dalgasına girer:
   ```c
@@ -114,6 +111,7 @@ rand() % 3 → 0, 1 veya 2 değerlerinden rastgele biri seçilir:
 2 → Kaçış başarılı, oyuncu zarar görmez
 
 Her turda sağlık veya enerji azalır; sağlık 0 veya altına düşerse oyun sona erer.
+
 
 ### 5.2 Do–While Döngüsü – Şifreli Geçiş (P komutu)
 - Oyuncu doğru karakteri girene kadar döngü tekrar eder:
