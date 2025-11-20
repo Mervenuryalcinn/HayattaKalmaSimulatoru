@@ -72,26 +72,10 @@ else if (sans >= 40 && sans < 60)
 
 Bu işlem sayesinde program, farklı şans aralıklarına göre doğru aksiyonu seçer ve karar süreci kontrol altında tutulur.
 
-
-
-
-
-4.3 Dinlenme (R komutu)
-
-Dinlenme sırasında enerji ve sağlık aritmetik olarak artırılır:
-
-enerji += 20;
-saglik += 10;
-
-
-Üst sınır kontrolü IF ile yapılır:
-
-if (enerji > 100) enerji = 100;
-if (saglik > 100) saglik = 100;
-
 ---
 ### 4.2 Sığınak Arama (S komutu)
 
+```c
 Enerji > 30 ve sağlık > 40 ise oyuncu sığınak bulur:
 
 if ((enerji > 30) && (saglik > 40)) {
@@ -105,7 +89,7 @@ IF–ELSE yapısı ile koşullar sağlanmazsa oyuncuya sığınak bulunamadığ�
 ### 4.3 Dinlenme (R komutu)
 
 Dinlenme sırasında enerji ve sağlık artırılır:
-
+ ```c
 enerji += 20;
 saglik += 10;
 
@@ -120,7 +104,7 @@ if (saglik > 100) saglik = 100;
 ### .1 For Döngüsü – Tehlike Dalgası (F komutu)
 
 Oyuncu 5 tur süren bir tehlike dalgasına girer. For döngüsü ile yapılır:
-
+  ```c
 for (i = 1; i <= 5; i++) {
     int olay = rand() % 3;
 } 
@@ -140,7 +124,7 @@ Her turda sağlık veya enerji azalır, sağlık 0 veya altına düşerse oyun s
 ### 5.2 Do–While Döngüsü – Şifreli Geçiş (P komutu)
 
 Oyuncu doğru karakteri girene kadar döngü tekrar eder:
-
+  ```c
 do {
     scanf(" %c", &girilen);
 } while (girilen != sifre);
