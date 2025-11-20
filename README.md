@@ -4,7 +4,7 @@
 Bu proje, C programlama dili kullanılarak geliştirilen karakter tabanlı bir Hayatta Kalma Simülatörü uygulamasıdır.  
 Oyuncu tek karakterlik komutlar girerek oyunla etkileşime geçer. Program, `switch–case` yapısı ile komutları işler; sağlık, enerji, yemek ve sığınak gibi durumları aritmetik işlemlerle günceller; rastgele olayları `rand()` fonksiyonu ile üretir.  
 
-### dokemd cfrm
+
   
 ---
 ## 🎮 Nasıl Oynanır?
