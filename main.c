@@ -4,19 +4,19 @@
 
 int main() {
 
-    // Durum değişkenleri: Oyuncunun sağlık, enerji, yemek ve sığınak durumunu takip eder
+    // Durum deÄŸiÅŸkenleri: Oyuncunun saÄŸlÄ±k, enerji, yemek ve sÄ±ÄŸÄ±nak durumunu takip eder
     int saglik = 100;
     int enerji = 100;
     int yemek = 0;
     int siginakVar = 0;
 
     char komut;
-    srand(time(NULL)); // Rastgele sayı üretimi için zaman tabanlı seed
+    srand(time(NULL)); // Rastgele sayÄ± Ã¼retimi iÃ§in zaman tabanlÄ± seed ayarÄ±
 
     printf("=== HAYATTA KALMA SIMULATORU ===\n");
     printf("Komutlar: A(Avlan), S(Siginak Ara), R(Dinlen), E(Envanter), F(Tehlike Dalgasi), P(Sifreli Gecis), X(Cikis)\n");
 
-    // Ana döngü: Kullanıcı 'X' komutunu girene kadar devam eder
+    // Ana dÃ¶ngÃ¼: KullanÄ±cÄ± 'X' komutunu girene kadar devam eder
     do {
         printf("\nKomut giriniz: ");
         scanf(" %c", &komut);
@@ -27,12 +27,12 @@ int main() {
         case 'A': {
             printf("\n--- Avlaniyorsun ---\n");
 
-            enerji -= 15; // Enerji azalır 
-            if (enerji < 0) enerji = 0; // Enerji alt sınırı kontrolü
+            enerji -= 15; // Enerji azalÄ±r 
+            if (enerji < 0) enerji = 0; // Enerji alt sÄ±nÄ±rÄ± kontrolÃ¼
 
-            int sans = rand() % 100; // 0-99 arası rastgele sayı
+            int sans = rand() % 100; // 0-99 arasÄ± rastgele sayÄ±
 
-            // Şans değerine göre olay belirlenir 
+            // Åans deÄŸerine gÃ¶re olay belirlenir 
             if (sans < 40) {
                 yemek++; // %40 ihtimalle yemek bulunur
                 printf("Yemek buldun! Toplam yemek: %d\n", yemek);
@@ -42,47 +42,47 @@ int main() {
                 printf("Yaralandin! Saglik: %d\n", saglik);
             }
             else {
-                printf("Hiçbir şey bulamadin.\n"); // %40 ihtimalle boş geçer
+                printf("HiÃ§bir ÅŸey bulamadin.\n"); // %40 ihtimalle boÅŸ geÃ§er
             }
 
             break;
         }
 
-        // --------------- S: SIĞINAK ARAMA ---------------
+        // --------------- S: SIÄINAK ARAMA ---------------
         case 'S': {
             printf("\n--- Siginak araniyor ---\n");
 
-            // Mantıksal VE (&&) ile enerji ve sağlık kontrolü
+            // MantÄ±ksal VE (&&) ile enerji ve saÄŸlÄ±k kontrolÃ¼
             int kosul1 = (enerji > 30);
             int kosul2 = (saglik > 40);
 
-            if (kosul1 && kosul2) { // IF-ELSE ile karar mekanizması
+            if (kosul1 && kosul2) { // IF-ELSE ile karar mekanizmasÄ±
                 printf("Siginak buldun!\n");
-                siginakVar = 1; // Sığınak bulundu
+                siginakVar = 1; // SÄ±ÄŸÄ±nak bulundu
             } else {
-                printf("Siginak bulamadın. Kosullar uygun degil.\n");
+                printf("Siginak bulamadÄ±n. Kosullar uygun degil.\n");
             }
             break;
         }
 
-        // --------------- E: ENVANTER GÖRÜNTÜLE ---------------
+        // --------------- E: ENVANTER GÃ–RÃœNTÃœLE ---------------
         case 'E': {
             printf("\n=== Envanter ===\n");
             printf("Saglik: %d\n", saglik);
             printf("Enerji: %d\n", enerji);
             printf("Yemek:  %d\n", yemek);
-            printf("Siginak: %s\n", siginakVar ? "Var" : "Yok"); // ? : operatörü ile durum kontrolü
+            printf("Siginak: %s\n", siginakVar ? "Var" : "Yok"); // ? : operatÃ¶rÃ¼ ile durum kontrolÃ¼
             break;
         }
 
-        // --------------- R: DİNLENME ---------------
+        // --------------- R: DÄ°NLENME ---------------
         case 'R': {
             printf("\n--- Dinleniyorsun ---\n");
 
-            enerji += 20; // Enerji artışı
-            saglik += 10; // Sağlık artışı
+            enerji += 20; // Enerji artÄ±ÅŸÄ±
+            saglik += 10; // SaÄŸlÄ±k artÄ±ÅŸÄ±
 
-            if (enerji > 100) enerji = 100; // Maks sınır kontrolü
+            if (enerji > 100) enerji = 100; // Maks sÄ±nÄ±r kontrolÃ¼
             if (saglik > 100) saglik = 100;
 
             printf("Enerjin yenilendi: %d\n", enerji);
@@ -90,28 +90,30 @@ int main() {
             break;
         }
 
-        // --------------- F: TEHLİKE DALGASI (FOR DÖNGÜSÜ) ---------------
+        // --------------- F: TEHLÄ°KE DALGASI (FOR DÃ–NGÃœSÃœ) ---------------
         case 'F': {
             printf("\n--- Tehlike Dalgasi Basladi ---\n");
             int i;
-            for (i = 1; i <= 5; i++) { // For döngüsü ile 5 tur tehlike simülasyonu
+            for (i = 1; i <= 5; i++) { // For dÃ¶ngÃ¼sÃ¼ ile 5 tur tehlike simÃ¼lasyonu
                 printf("%d. tehlike geliyor...\n", i);
 
-                int olay = rand() % 3; // Rastgele olay seçimi: 0-can kaybı, 1-enerji kaybı, 2-kaçış
+                int olay = rand() % 3; // Rastgele olay seÃ§imi: 0-can kaybÄ±, 1-enerji kaybÄ±, 2-kaÃ§Ä±ÅŸ
 
                 if (olay == 0) {
                     saglik -= 5;
+                    if (saglik < 0) saglik = 0;
                     printf("Saldiriya ugradin! Saglik: %d\n", saglik);
                 } 
                 else if (olay == 1) {
                     enerji -= 5;
+                    if (enerji < 0) enerji = 0;
                     printf("Enerjin dustu! Enerji: %d\n", enerji);
                 }
                 else {
                     printf("Tehlikeden kacmayi basardin!\n");
                 }
 
-                if (saglik <= 0) { // Sağlık sıfır olursa oyun biter
+                if (saglik <= 0) { // SaÄŸlÄ±k sÄ±fÄ±r olursa oyun biter
                     printf("Oldun! Oyun bitti.\n");
                     return 0;
                 }
@@ -119,14 +121,14 @@ int main() {
             break;
         }
 
-        // --------------- P: ŞİFRELİ GEÇİŞ (DO-WHILE DÖNGÜSÜ) ---------------
+        // --------------- P: ÅÄ°FRELÄ° GEÃ‡Ä°Å (DO-WHILE DÃ–NGÃœSÃœ) ---------------
         case 'P': {
-            printf("\n--- Sifreli Kapı ---\n");
+            printf("\n--- Sifreli Kapi ---\n");
 
             char girilen;
             const char sifre = 'Z';
 
-            do { // En az bir kez çalışır, doğru karakter girilene kadar tekrar eder
+            do { // En az bir kez Ã§alÄ±ÅŸÄ±r, doÄŸru karakter girilene kadar tekrar eder
                 printf("Sifreyi gir (tek karakter): ");
                 scanf(" %c", &girilen);
 
@@ -139,7 +141,7 @@ int main() {
             break;
         }
 
-        // --------------- X: ÇIKIŞ ---------------
+        // --------------- X: Ã‡IKIÅ ---------------
         case 'X':
             printf("Cikiliyor...\n");
             break;
@@ -149,14 +151,13 @@ int main() {
             printf("Gecersiz komut!\n");
         }
 
-        // Oyuncu öldüyse oyun biter
+        // Oyuncu Ã¶ldÃ¼yse oyun biter
         if (saglik <= 0) {
-            printf("Sagligin tükendi! Oyun bitti.\n");
+            printf("Sagligin tÃ¼kendi! Oyun bitti.\n");
             break;
         }
 
-    } while (komut != 'X'); // Ana döngü bitiş
+    } while (komut != 'X'); // Ana dÃ¶ngÃ¼ bitiÅŸ
 
     return 0;
 }
-
